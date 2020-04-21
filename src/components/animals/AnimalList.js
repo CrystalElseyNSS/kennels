@@ -5,10 +5,10 @@ import Animal from "./Animal"
 export default () => {
     const { animals } = useContext(AnimalContext)
     return (
-        <div className="animals">
+        <section className="animals">
         {
-            animals.map(loc => <Animal key={loc.id} animal={loc} />)
+            animals.map(anim => <Animal key={anim.id} animal={anim} />)
         }
-        </div>
+        </section>
     )
 }
