@@ -1,12 +1,12 @@
 .locations {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
   
   .location {
-      flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
-      border: 2px solid magenta;
+    border: 2px solid magenta;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+    width: 200px;
   }

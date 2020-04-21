@@ -1,9 +1,8 @@
 import React from "react"
 import "./Customer.css"
 
-export default () => (
+export default (props) => (
     <section className="customer">
-        <h3 className="customer__name">Steve</h3>
-        <div className="customer__dog">Doodles</div>
+        <h3 className="customer__name">Name: {props.customer.name}</h3>
     </section>
 )
