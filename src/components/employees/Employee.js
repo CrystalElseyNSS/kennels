@@ -1,4 +1,5 @@
 import React from "react"
+import "./Employee.css"
 
 export default () => (
     <section className="employee">
