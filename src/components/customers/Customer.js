@@ -1,4 +1,5 @@
 import React from "react"
+import "./Customer.css"
 
 export default () => (
     <section className="customer">
