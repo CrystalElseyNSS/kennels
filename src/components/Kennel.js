@@ -1,53 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
+import Dashboard from "./Dashboard"
+import Auth from "./auth/Auth"
 
-import { AnimalProvider } from "./animals/AnimalProvider"
-import AnimalList from "./animals/AnimalList"
-import { LocationProvider } from "./locations/LocationProvider"
-import LocationList from "./locations/LocationList"
-import { CustomerProvider } from "./customers/CustomerProvider"
-import CustomerList from "./customers/CustomerList"
-import { EmployeeProvider } from "./employees/EmployeeProvider"
-import EmployeeList from "./employees/EmployeeList"
+export default () => {
+    const [check, update] = useState(false)
+    const toggle = () => update(!check)
 
-import "./Kennel.css"
-
-export default () => (
-    <>
-        <div className="pageHeader">
-            <h1>Nashville Kennels</h1>
-        </div>
-
-        <div className="tagline">
-            <h2>"Loving care when you're not there"</h2>
-        </div>
- 
-        <AnimalProvider>
-            <CustomerProvider>
-                <LocationProvider>
-                    <AnimalList />
-                </LocationProvider>
-            </CustomerProvider>
-        </AnimalProvider>
-
-       
-        <LocationProvider>
-            <LocationList />
-        </LocationProvider>
-
-
-        <CustomerProvider>
-            <AnimalProvider>
-                <LocationProvider>
-                    <CustomerList />
-                </LocationProvider>        
-            </AnimalProvider>
-        </CustomerProvider>
-
-        
-            <EmployeeProvider>
-                <LocationProvider>
-                    <EmployeeList />
-                </LocationProvider>
-            </EmployeeProvider>
-    </>
-)
+    return (
+        localStorage.getItem("kennel_customer") ? <Dashboard /> : <Auth toggle={toggle} />
+    )
+}
