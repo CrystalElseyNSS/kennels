@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway:wght@500&display=swap');
 
-body,
+/* body,
 button,
 input,
 select,
@@ -9,11 +9,23 @@ textarea {
   font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
-}
+} */
 
-p {
+/* p {
   margin-bottom: 1.5em;
   color: #d6fcff;
   color: darkslateblue;
+} */
+
+.pageHeader {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
+.tagline {
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: 'Marck Script', cursive;
+  justify-content: center;
+}

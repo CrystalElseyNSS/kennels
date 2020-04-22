@@ -1,12 +1,36 @@
-.locations {
+.locationContainer {
+  border: 2px solid sandybrown;
+  border-radius: 5px;
+  margin: 20px;
+  padding-bottom: 40px;
+}
+
+.location__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.location__heading {
+  color: sandybrown;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.location__list {
     display: flex;
     flex-wrap: wrap;
-  }
+    justify-content: center;
+}
   
-  .location {
-    border: 2px solid magenta;
-    margin: 1em;
-    padding: 1em;
-    text-align: center;
-    width: 200px;
-  }
+.location {
+  background-color: sandybrown;
+  border: 1px solid sandybrown;
+  border-radius: 5px;  
+  color: whitesmoke;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  width: 250px;
+}
