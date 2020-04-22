@@ -4,8 +4,7 @@ import Location from "./Location"
 
 
 export default () => {
-    // const locations = useLocations():
-    // Invoke useContext() in order to access the location data being returned in /LocationContext
+    
     const { locations } = useContext(LocationContext)
 
     return (
