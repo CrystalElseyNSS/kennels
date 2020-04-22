@@ -17,15 +17,3 @@ textarea {
   color: darkslateblue;
 } */
 
-.pageHeader {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-.tagline {
-  display: flex;
-  flex-wrap: nowrap;
-  font-family: 'Marck Script', cursive;
-  justify-content: center;
-}
