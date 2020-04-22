@@ -1,12 +1,45 @@
-.employees {
+.employeeContainer {
+  border: 2px solid darkcyan;
+  border-radius: 5px;
+  margin: 20px;
+  padding-bottom: 40px;
+}
+
+.employee__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.employee__heading {
+  color: darkcyan;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.employee__list {
     display: flex;
     flex-wrap: wrap;
-  }
+    justify-content: center;
+}
   
-  .employee {
-    border: 2px solid turquoise;
-    margin: 1em;
-    padding: 1em;
-    text-align: center;
-    width: 200px;
-  }
+.employee {
+  background-color: darkcyan;
+  border: 1px solid darkcyan;  
+  border-radius: 5px;  
+  color: whitesmoke;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  width: 250px;
+}
+  
+.employeeForm__button:hover {
+  border: 2px solid darkcyan;
+  box-shadow: inset 0 0 0 3px whitesmoke;
+}
+
+.employeeForm__link {
+  cursor: pointer;
+}
