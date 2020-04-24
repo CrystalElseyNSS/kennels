@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway:wght@500&display=swap');
 
-/* body,
-button,
-input,
-select,
-textarea {
-  color: #404040;
-  font-family: 'Raleway', sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
-} */
+.dataContainer {
+  padding: 2rem;
+  flex: 4;
+}
 
-/* p {
-  margin-bottom: 1.5em;
-  color: #d6fcff;
-  color: darkslateblue;
-} */
+.headerContainer {
+  margin: auto;
+  max-width: 550px;
+}
 
+.header--name {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.header--tagline {
+  font-family: 'Marck Script', cursive;
+  text-align: center;
+} 

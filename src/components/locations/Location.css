@@ -1,5 +1,5 @@
 .locationContainer {
-  border: 2px solid sandybrown;
+  border: 2px solid burlywood;
   border-radius: 5px;
   margin: 20px;
   padding-bottom: 40px;
@@ -13,7 +13,7 @@
 }
 
 .location__heading {
-  color: sandybrown;
+  color: burlywood;
   text-transform: uppercase;
   font-weight: bolder;
 }
@@ -25,8 +25,8 @@
 }
   
 .location {
-  background-color: sandybrown;
-  border: 1px solid sandybrown;
+  background-color: burlywood;
+  border: 1px solid burlywood;
   border-radius: 5px;  
   color: whitesmoke;
   margin: 1em;

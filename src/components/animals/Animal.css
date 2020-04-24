@@ -1,5 +1,5 @@
 .animalContainer {
-  border: 2px solid lightseagreen;
+  border: 2px solid burlywood;
   border-radius: 5px;
   margin: 20px;
   padding-bottom: 40px;
@@ -13,8 +13,25 @@
 }
 
 .animal__heading {
-  color: lightseagreen;
+  color: burlywood;
   text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.animal__search {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  padding: 2rem;
+}
+
+#animalSearchTerms {
+  width: 350px;
+  margin-right: 100px;
+}
+
+.animalResults--list {
+  color: gray;
   font-weight: bolder;
 }
 
@@ -25,8 +42,8 @@
 }
   
 .animal {
-  background-color: lightseagreen;
-  border: 1px solid lightseagreen;  
+  background-color: burlywood;
+  border: 1px solid burlywood;  
   border-radius: 5px;  
   color: whitesmoke;
   margin: 1em;
