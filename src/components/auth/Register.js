@@ -69,7 +69,6 @@ const Register = props => {
                         className="form-control"
                         placeholder="Ex: Smith"
                         required 
-                        autoFocus
                     />
                 </fieldset>
                 <fieldset>
@@ -79,7 +78,6 @@ const Register = props => {
                         className="form-control"
                         placeholder="Ex: johnsmith@email.com"
                         required 
-                        autoFocus
                     />
                 </fieldset>
                 <fieldset>
@@ -89,7 +87,6 @@ const Register = props => {
                         className="form-control"
                         placeholder="Ex: Abc123$!"
                         required 
-                        autoFocus
                     />
                 </fieldset>
                 <fieldset>
@@ -101,7 +98,7 @@ const Register = props => {
                 </fieldset>
                 <fieldset>
                     <button className="login--btn" type="submit">
-                        Register    🐾
+                        Register <span role="img" aria-label="Paws">🐾</span>
                     </button>
                 </fieldset>
             </form>

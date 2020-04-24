@@ -35,6 +35,10 @@ const Login = props => {
 
     return (
         <article className="loginContainer">
+            <header className="headerContainer">
+                <h1 className="header--name">Nashville Kennels</h1>
+                <h2 className="header--tagline">"Loving care when you're not there"</h2>
+            </header>
             <form className="loginForm" onSubmit={handleLogin}>
                 <h4 className="loginHeader">Please sign in: </h4>
                 <fieldset>
@@ -51,13 +55,12 @@ const Login = props => {
                     <input ref={password} type="password"
                         id="password"
                         className="form-control"
-                        required
-                        autoFocus 
+                        required 
                     />
                 </fieldset>
                 <fieldset>
                     <button type="submit" className="login--btn">
-                        Sign in 🐾
+                        Sign in <span role="img" aria-label="Paws">🐾</span>
                     </button>
                 </fieldset>
             </form>
