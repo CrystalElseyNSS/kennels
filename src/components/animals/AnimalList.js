@@ -19,7 +19,7 @@ export default () => {
             <header className="animal__header">
                 <h2 className="animal__heading">animals</h2>
                 <div className="animalForm__link" onClick={toggle}>
-                        <Button className="animalForm__button">Enter New Pet</Button>{' '}
+                        <Button className="animalForm__button">Make Appointment</Button>{' '}
                 </div>
             </header>
 
@@ -31,7 +31,7 @@ export default () => {
         
             <Modal isOpen={modal} toggle={toggle}>
                     <ModalHeader toggle={toggle}>
-                        <h3 className="employeeForm__title">Enter Pet Information:</h3>
+                        <h3 className="animalForm__title">Enter Pet Information:</h3>
                     </ModalHeader>
                     <ModalBody>
                         <AnimalForm toggler={toggle} />

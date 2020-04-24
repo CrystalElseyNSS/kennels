@@ -101,7 +101,7 @@ const Register = props => {
                 </fieldset>
                 <fieldset>
                     <button className="login--btn" type="submit">
-                        Register 🐾
+                        Register    🐾
                     </button>
                 </fieldset>
             </form>
