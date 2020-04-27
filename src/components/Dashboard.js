@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { AnimalProvider } from "./animals/AnimalProvider"
 import { LocationProvider } from "./locations/LocationProvider"
 import LocationList from "./locations/LocationList"
@@ -13,30 +13,78 @@ import "./Layout.css"
 
 export const Dashboard = () => {
     const [searchTerms, setTerms] = useState("")
+    const [activeList, setActiveList] = useState("locations")
+    const [components, setComponents] = useState()
+
+
+    // Components needed to display locations
+    const showLocations = () => (
+        <LocationProvider>
+            <LocationList />
+        </LocationProvider>
+    )
+
+    // Components needed to display customers
+    const showCustomers = () => (
+        <CustomerProvider>
+            <CustomerList />
+        </CustomerProvider>
+    )
+
+    // Components needed to display employee
+    const showEmployees = () => (
+        <EmployeeProvider>
+            <LocationProvider>
+                <EmployeeList />
+            </LocationProvider>
+        </EmployeeProvider>
+    )
+
+    /*
+        This effect hook determines which list is shown
+        based on the state of the `activeList` variable.
+    */
+    useEffect(() => {
+        if (activeList === "customers") {
+            setComponents(showCustomers)
+        }
+        else if (activeList === "locations") {
+            setComponents(showLocations)
+        }
+        else if (activeList === "employees") {
+            setComponents(showEmployees)
+        }
+    }, [activeList])
 
     return (
         <div className="mainContainer">
-            <AnimalProvider>
-                <CustomerProvider>
-                    <EmployeeProvider>
+            <div className="searchContainer">
+                <AnimalProvider>
+                    <CustomerProvider>
                         <LocationProvider>
-                            <div className="searchContainer">
-                                <SearchBar setTerms={setTerms} />
-                                <SearchResults searchTerms={searchTerms} />
-                            </div>
-                            <div className="dataContainer">
-                                <header className="headerContainer">
-                                    <h1 className="header--name">Nashville Kennels</h1>
-                                    <h2 className="header--tagline">"Loving care when you're not there"</h2>
-                                </header>
-                            <LocationList />
-                            <CustomerList />
-                            <EmployeeList />
-                        </div>
+                            <SearchBar setTerms={setTerms} />
+                            <SearchResults searchTerms={searchTerms} />
                         </LocationProvider>
-                    </EmployeeProvider>
-                </CustomerProvider>
-            </AnimalProvider>
+                    </CustomerProvider>
+                </AnimalProvider>
+            </div>
+            <div className="dataContainer">
+                <header className="headerContainer">
+                    <h1 className="header--name">Nashville Kennels</h1>
+                    <h2 className="header--tagline">"Loving care when you're not there"</h2>
+                </header>
+                <div className="listContainer">
+                    <div className="links">
+                        <div className="fakeLink href" onClick={() => setActiveList("locations")}>Locations</div>
+                        <div className="fakeLink href" onClick={() => setActiveList("customers")}>Customers</div>
+                        <div className="fakeLink href" onClick={() => setActiveList("employees")}>Employees</div>
+                    </div>
+                    <div className="listDisplay">
+                        {components}
+                    </div>
+                </div>
+
+            </div>
         </div>
     )
 }
