@@ -4,8 +4,6 @@ import Animal from "./Animal"
 import { LocationContext } from "../locations/LocationProvider"
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap"
 import AnimalForm from "./AnimalForm"
-import { AnimalSearchBar } from "./AnimalSearchBar"
-import { AnimalSearchResults } from "./AnimalResults"
 import "./Animal.css"
 
 
@@ -14,7 +12,6 @@ export default () => {
     const { locations } = useContext(LocationContext)
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
-    const [animalSearchTerms, setAnimalTerms] = useState("")
     
     return (
         <article className="animalContainer">
@@ -25,11 +22,6 @@ export default () => {
                         <Button className="animalForm__button">Make Appointment</Button>{' '}
                 </div>
             </header>
-
-            <section className="animal__search">
-                <AnimalSearchBar setAnimalTerms={setAnimalTerms} />
-                <AnimalSearchResults animalSearchTerms={animalSearchTerms} />
-            </section>
 
             <section className="animal__list">
                 {animals.map(animal => {
