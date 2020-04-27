@@ -30,11 +30,6 @@
   margin-right: 100px;
 }
 
-.animalResults--list {
-  color: gray;
-  font-weight: bolder;
-}
-
 .animal__list {
     display: flex;
     flex-wrap: wrap;
