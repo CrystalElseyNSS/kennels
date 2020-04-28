@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Raleway:wght@500&display=swap');
 
-.dataContainer {
+.mainContainer {
   padding: 2rem;
   flex: 4;
 }
@@ -19,3 +19,21 @@
   font-family: 'Marck Script', cursive;
   text-align: center;
 } 
+
+.menuContainer {
+  display: flex;
+  flex: 2;
+  margin-top: 40px;
+}
+
+.links {
+  flex: 4;
+  margin-top: 30px;
+  margin-left: 15px;
+
+}
+
+.link {
+  margin: 0px 5px;
+  width: 100px;
+}

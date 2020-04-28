@@ -4,6 +4,7 @@ import Customer from "./Customer"
 import "./Customer.css"
 
 export default () => {
+
     const { customers } = useContext(CustomerContext)
 
     return (

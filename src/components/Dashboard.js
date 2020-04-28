@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
+import { Button } from "reactstrap"
 import { AnimalProvider } from "./animals/AnimalProvider"
+import AnimalList from "./animals/AnimalList"
 import { LocationProvider } from "./locations/LocationProvider"
 import LocationList from "./locations/LocationList"
 import { CustomerProvider } from "./customers/CustomerProvider"
@@ -9,29 +11,24 @@ import EmployeeList from "./employees/EmployeeList"
 import { SearchBar } from "./search/SearchBar"
 import { SearchResults } from "./search/SearchResults"
 import "./Dashboard.css"
-import "./Layout.css"
 
 export const Dashboard = () => {
     const [searchTerms, setTerms] = useState("")
     const [activeList, setActiveList] = useState("locations")
     const [components, setComponents] = useState()
 
-
-    // Components needed to display locations
     const showLocations = () => (
         <LocationProvider>
             <LocationList />
         </LocationProvider>
     )
 
-    // Components needed to display customers
     const showCustomers = () => (
         <CustomerProvider>
             <CustomerList />
         </CustomerProvider>
     )
 
-    // Components needed to display employee
     const showEmployees = () => (
         <EmployeeProvider>
             <LocationProvider>
@@ -40,10 +37,12 @@ export const Dashboard = () => {
         </EmployeeProvider>
     )
 
-    /*
-        This effect hook determines which list is shown
-        based on the state of the `activeList` variable.
-    */
+    const showAnimals = () => (
+        <AnimalProvider>
+            <AnimalList />
+        </AnimalProvider>
+    )    
+
     useEffect(() => {
         if (activeList === "customers") {
             setComponents(showCustomers)
@@ -54,37 +53,44 @@ export const Dashboard = () => {
         else if (activeList === "employees") {
             setComponents(showEmployees)
         }
+        else if (activeList === "animals") {
+            setComponents(showAnimals)
+        }
     }, [activeList])
 
     return (
-        <div className="mainContainer">
-            <div className="searchContainer">
-                <AnimalProvider>
-                    <CustomerProvider>
-                        <LocationProvider>
-                            <SearchBar setTerms={setTerms} />
-                            <SearchResults searchTerms={searchTerms} />
-                        </LocationProvider>
-                    </CustomerProvider>
-                </AnimalProvider>
-            </div>
-            <div className="dataContainer">
+        <>
+            <main className="mainContainer">
+
                 <header className="headerContainer">
                     <h1 className="header--name">Nashville Kennels</h1>
                     <h2 className="header--tagline">"Loving care when you're not there"</h2>
                 </header>
-                <div className="listContainer">
+            
+                <section className="menuContainer">
                     <div className="links">
-                        <div className="fakeLink href" onClick={() => setActiveList("locations")}>Locations</div>
-                        <div className="fakeLink href" onClick={() => setActiveList("customers")}>Customers</div>
-                        <div className="fakeLink href" onClick={() => setActiveList("employees")}>Employees</div>
+                        <Button className="link" onClick={() => setActiveList("locations")}>Locations</Button>
+                        <Button className="link" onClick={() => setActiveList("customers")}>Customers</Button>
+                        <Button className="link" onClick={() => setActiveList("employees")}>Employees</Button>
+                        <Button className="link" onClick={() => setActiveList("animals")}>Animals</Button>
                     </div>
-                    <div className="listDisplay">
-                        {components}
-                    </div>
-                </div>
+                    <div className="search">
+                        <AnimalProvider>
+                            <CustomerProvider>
+                                <LocationProvider>
+                                    <SearchBar setTerms={setTerms} />
+                                    <SearchResults searchTerms={searchTerms} />
+                                </LocationProvider>
+                            </CustomerProvider>
+                        </AnimalProvider>
+                    </div> 
+                </section>
 
-            </div>
-        </div>
+                <section className="dataContainer">
+                    {components}
+                </section>   
+
+            </main>
+        </>
     )
 }
