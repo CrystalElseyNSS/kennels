@@ -39,7 +39,9 @@ export const Dashboard = () => {
 
     const showAnimals = () => (
         <AnimalProvider>
-            <AnimalList />
+            <LocationProvider>
+                <AnimalList />
+            </LocationProvider>
         </AnimalProvider>
     )    
 

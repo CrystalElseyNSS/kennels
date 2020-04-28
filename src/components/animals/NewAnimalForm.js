@@ -5,27 +5,27 @@ import "./Animal.css"
 
 export default (props) => {
     const { addAnimal } = useContext(AnimalContext)
-    // const { locations } = useContext(LocationContext)
+    const { locations } = useContext(LocationContext)
     
     const name = useRef()
     const breed = useRef()
-    // const location = useRef()
+    const location = useRef()
     
     const constructNewAnimal = () => {
-        // const locationId = parseInt(location.current.value)
+        const locationId = parseInt(location.current.value)
         const customerId = parseInt(localStorage.getItem("kennel_customer"))
-        // if (locationId === 0) {
-        //     window.alert("Please select a location")
-        // } else {
+        if (locationId === 0) {
+            window.alert("Please select a location")
+        } else {
             addAnimal({
                 name: name.current.value,
                 breed: breed.current.value,
-                // locationId: locationId,
+                locationId: locationId,
                 customerId: customerId
             })
             .then(props.toggler)
         }
-    
+    }
 
     return (
         <form className="newAnimalForm">  
@@ -58,7 +58,7 @@ export default (props) => {
                 </div>
             </fieldset>
 
-            {/* <fieldset>
+            <fieldset>
                 <div className="form-group">
                     <label htmlFor="newAnimalForm--location">Preferred location: </label>
                     <select
@@ -76,7 +76,7 @@ export default (props) => {
                         ))}
                     </select>
                 </div>
-            </fieldset> */}
+            </fieldset>
 
             <button type="submit" onClick={evt => {
                 evt.preventDefault()
