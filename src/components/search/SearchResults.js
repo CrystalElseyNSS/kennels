@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react"
 import { AnimalContext } from "../animals/AnimalProvider"
 import Animal from "../animals/Animal"
+import { EditAnimalForm } from "../animals/EditAnimalForm"
 import { CustomerContext } from "../customers/CustomerProvider"
 import { LocationContext } from "../locations/LocationProvider"
 import { Modal, ModalHeader, ModalBody, Button, ModalFooter } from "reactstrap"
+import "../animals/Animal.css"
 
 
 export const SearchResults = ({ searchTerms }) => {
@@ -12,10 +14,12 @@ export const SearchResults = ({ searchTerms }) => {
     const { locations } = useContext(LocationContext)
 
     const [filteredAnimals, setFiltered] = useState([])
-    const [selectedAnimal, setAnimal] = useState({animal: {id:0}, location: null, customer: null})
+    const [selectedAnimal, setAnimal] = useState({animal: {id:0}, location: "", customer: ""})
 
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
+    const [editModal, setEditModal] = useState(false)
+    const toggleEdit = () => setEditModal(!editModal)
 
     useEffect(() => {
         if (searchTerms !== "") {
@@ -28,11 +32,11 @@ export const SearchResults = ({ searchTerms }) => {
 
     return (
         <div className="searchResults">
-            <h3>Results</h3>
+            
             <div className="animals">
                 {
                     filteredAnimals.map(animal => <div>
-                        <Button className="employeeForm__button"
+                        <Button className="petInfo--btn"
                         onClick={() => {
                             const location = locations.find(l => l.id === animal.locationId)
                             const customer = customers.find(c => c.id === animal.customerId)
@@ -46,6 +50,15 @@ export const SearchResults = ({ searchTerms }) => {
                 }
             </div>
 
+            <Modal isOpen={editModal} toggle={toggleEdit}>
+                <ModalHeader toggle={toggleEdit}>
+                    { selectedAnimal.animal.name }
+                </ModalHeader>
+                <ModalBody>
+                    <EditAnimalForm key={selectedAnimal.animal.id} toggleEdit={toggleEdit} {...selectedAnimal} />
+                </ModalBody>
+            </Modal>
+
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
                     { selectedAnimal.animal.name }
@@ -54,6 +67,10 @@ export const SearchResults = ({ searchTerms }) => {
                     <Animal key={selectedAnimal.animal.id} {...selectedAnimal} />
                 </ModalBody>
                 <ModalFooter>
+                    <Button color="secondary" onClick={() => {
+                        toggle()
+                        toggleEdit()
+                    }}>Edit</Button>
                     <Button color="danger" onClick={() => {
                         releaseAnimal(selectedAnimal.animal.id)
                         toggle()
