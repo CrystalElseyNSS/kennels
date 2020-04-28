@@ -55,7 +55,15 @@
   cursor: pointer;
 }
 
+.newAnimalForm__link:hover {
+  box-shadow: inset 0 0 0 3px whitesmoke;
+}
+
 .petInfo--btn {
   width: 250px;
   margin: 10px;
+}
+
+.petInfo--btn:hover {
+  box-shadow: inset 0 0 0 3px whitesmoke;
 }

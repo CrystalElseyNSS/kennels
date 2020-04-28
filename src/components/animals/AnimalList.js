@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { AnimalContext } from "./AnimalProvider"
 import Animal from "./Animal"
-// import { LocationContext } from "../locations/LocationProvider"
+import { LocationContext } from "../locations/LocationProvider"
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap"
 import NewAnimalForm from "./NewAnimalForm"
 import "./Animal.css"
@@ -9,7 +9,7 @@ import "./Animal.css"
 
 export default () => {
     const { animals } = useContext(AnimalContext)
-    // const { locations } = useContext(LocationContext)
+    const { locations } = useContext(LocationContext)
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
     
@@ -25,8 +25,8 @@ export default () => {
 
             <section className="animal__list">
                 {animals.map(animal => {
-                    // const foundLocation = locations.find(location => location.id === animal.locationId)
-                    return <Animal key={animal.id} animal={animal}/>})}
+                    const foundLocation = locations.find(location => location.id === animal.locationId)
+                    return <Animal key={animal.id} animal={animal} location={foundLocation}/>})}
             </section>
         
             <Modal isOpen={modal} toggle={toggle}>
